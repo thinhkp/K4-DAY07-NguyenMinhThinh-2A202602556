@@ -1,6 +1,6 @@
 ﻿=== SHOPEE RETRIEVAL BENCHMARK ===
 strategy: RecursiveChunker(chunk_size=1000)
-embedding: mock embeddings fallback      
+embedding: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
 source documents: 6
 stored chunks: 32
 chunks per document:
@@ -16,13 +16,13 @@ QUERY 1: Với thực phẩm tươi sống và đông lạnh, người mua phả
 FILTER: {'audience': 'buyer'}
 GOLD DOC: buyer-return-conditions
 GOLD ANSWER: Trong vòng 24 giờ kể từ khi đơn hàng được cập nhật trạng thái Giao hàng thành công, trừ trường hợp chưa nhận được hàng.
-1. score=0.2105 doc_id=buyer-return-processing chunk=2 audience=buyer
-   Sau khi đã cung cấp bằng chứng thành công, bạn vui lòng thường xuyên theo dõi tại phần thông báo Shopee để nhanh chóng được cập nhật tình hình xử lý của yêu cầu Trả hàng/Hoàn tiền. ## 3. Phân loại phương án xử lý Trả hàng/Hoàn tiền của ...
-2. score=0.2095 doc_id=buyer-return-processing chunk=6 audience=buyer
-   Để tăng khả năng yêu cầu Trả hàng/Hoàn tiền của bạn được chấp nhận, khi yêu cầu Trả hàng/Hoàn tiền phải đảm bảo sản phẩm yêu cầu của bạn thỏa một trong các điều kiện, và hãy cung cấp bằng chứng có sức thuyết phục cao (Lưu ý này chỉ khả thi trước khi có quyế...
-3. score=0.1794 doc_id=buyer-return-processing chunk=0 audience=buyer
-   # Quy trình xử lý yêu cầu trả hàng và hoàn tiền ## 1. Nguyên tắc chung Tùy từng trường hợp cụ thể, yêu cầu Trả hàng/ Hoàn tiền của bạn sẽ được Shopee chấp nhận cho Trả hàng ngay sau khi gửi yêu cầu hoặc được chuyển trạng thái Shopee đang xem xét Đối với các...
-GOLD DOC IN TOP-3: NO
+1. score=0.6404 doc_id=buyer-return-request-guide chunk=2 audience=buyer
+   Nếu yêu cầu được chấp nhận, tiền sẽ được hoàn trong 1 - 14 ngày làm việc, tùy thuộc vào phương thức thanh toán. Để tìm hiểu thêm về thời gian hoàn tiền theo từng phương thức, vui lòng truy cập [Trả hàng/Hoàn tiền] Thời gian nhận tiền hoàn và cách kiểm tra t...
+2. score=0.5941 doc_id=buyer-return-conditions chunk=1 audience=buyer
+   ⚠️ Lưu ý: Bạn vẫn có thể gửi yêu cầu Trả hàng/Hoàn tiền sau khi đã bấm nút ‘Đã nhận được hàng’ và vẫn còn trong thời hạn 15 ngày Trả hàng/Hoàn tiền quy định của Shopee Yêu cầu Trả hàng/Hoàn tiền của bạn sẽ được phản hồi trong vòng 3-5 ngày làm việc*. Hãy th...
+3. score=0.4735 doc_id=buyer-refund-timeline chunk=2 audience=buyer
+   Trong quá trình xử lý nếu Người bán có khiếu nại, Shopee sẽ xem xét & thông báo kết quả cuối cùng đến bạn tại mục Thông báo > Cậpnhật đơn hàng trong vòng 3-5 ngày làm việc kể từ lúc tiếp nhận khiếu nại từ Người bán Đối với hình thức trả hàng “Tự sắp xếp”, ...
+GOLD DOC IN TOP-3: YES (rank 2)
 GOLD ANSWER EVIDENCE IN TOP-3: NO (0 points)
 
 ================================================================================
@@ -30,27 +30,27 @@ QUERY 2: Shopee có hỗ trợ yêu cầu đổi hàng không, và người mua 
 FILTER: {'audience': 'buyer'}
 GOLD DOC: buyer-return-conditions
 GOLD ANSWER: Shopee chưa hỗ trợ đổi hàng; người mua có thể từ chối nhận khi đồng kiểm hoặc gửi yêu cầu Trả hàng/Hoàn tiền sau khi nhận hàng.
-1. score=0.2199 doc_id=buyer-return-processing chunk=8 audience=buyer
-   Shopee chưa hỗ trợ đồng kiểm đối với các đơn hàng được hoàn trả về bạn Khi nhận lại đơn hàng hoàn hàng, bạn vui lòng kiểm tra kỹ ngoại quan của kiện hàng và tiến hành quay video toàn bộ quá trình mở hàng để làm bằng chứng khiếu nại trong trường hợp sản phẩm...
-2. score=0.1763 doc_id=buyer-refund-timeline chunk=2 audience=buyer
+1. score=0.6245 doc_id=buyer-return-conditions chunk=0 audience=buyer
+   # Quy định chung về trả hàng và hoàn tiền ## 1. Điều kiện Trả hàng/Hoàn tiền của Shopee ### 1.1. Nguyên tắc chung Shopee hiện chưa hỗ trợ yêu cầu đổi hàng. Nếu hàng nhận được có vấn đề (khác với mô tả, hư hỏng,...), bạn có thể từ chối nhận hàng khi đồng kiể...
+2. score=0.6133 doc_id=buyer-return-processing chunk=5 audience=buyer
+   Các trường hợp không mong muốn Cách phòng tránh Người mua không thể thao tác trên hệ thống do hết thời gian khiếu nại Thường xuyên theo dõi tình trạng Trả hàng hoàn tiền được cập nhật trên ứng dụng Shopee để phản hồi đúng thời gian quy định. Quá hạn phản hồ...
+3. score=0.5998 doc_id=buyer-refund-timeline chunk=2 audience=buyer
    Trong quá trình xử lý nếu Người bán có khiếu nại, Shopee sẽ xem xét & thông báo kết quả cuối cùng đến bạn tại mục Thông báo > Cậpnhật đơn hàng trong vòng 3-5 ngày làm việc kể từ lúc tiếp nhận khiếu nại từ Người bán Đối với hình thức trả hàng “Tự sắp xếp”, ...
-3. score=0.1283 doc_id=buyer-return-conditions chunk=2 audience=buyer
-   Tất cả sản phẩm Thiếu hàng Đã nhận được gói hàng nhưng thiếu một/vài sản phẩm đã đặt, thiếu bộ phận của sản phẩm hoặc phụ kiện, thiếu quà tặng kèm Tất cả sản phẩm Người bán gửi sai hàng Sản phẩm nhận được không phải sản phẩm đã đặt Tất cả sản phẩm Hàng bể v...
-GOLD DOC IN TOP-3: YES (rank 3)
-GOLD ANSWER EVIDENCE IN TOP-3: NO (0 points)
+GOLD DOC IN TOP-3: YES (rank 1)
+GOLD ANSWER EVIDENCE IN TOP-3: YES (by rank 1, 2 point(s))
 
 ================================================================================
 QUERY 3: Người mua có thể gửi yêu cầu Trả hàng/Hoàn tiền bằng những cách nào?
 FILTER: {'audience': 'buyer'}
 GOLD DOC: buyer-return-request-guide
 GOLD ANSWER: Gửi trực tiếp tại trang đơn hàng hoặc gửi tại mục Trò Chuyện Với Shopee rồi chọn Khiếu nại trả hàng hoàn tiền.
-1. score=0.2526 doc_id=buyer-return-conditions chunk=2 audience=buyer
-   Tất cả sản phẩm Thiếu hàng Đã nhận được gói hàng nhưng thiếu một/vài sản phẩm đã đặt, thiếu bộ phận của sản phẩm hoặc phụ kiện, thiếu quà tặng kèm Tất cả sản phẩm Người bán gửi sai hàng Sản phẩm nhận được không phải sản phẩm đã đặt Tất cả sản phẩm Hàng bể v...
-2. score=0.2170 doc_id=buyer-return-conditions chunk=3 audience=buyer
-   Khác với mô tả Sản phẩm có sự khác biệt rõ ràng về chất liệu, màu sắc, thông số, kiểu dáng so với mô tả của người bán Tất cả sản phẩm Hàng đã qua sử dụng Sản phẩm có dấu hiệu đã qua sử dụng (bị bẩn, đã bị cạy mở, không còn đủ dung tích,...) Ngoại trừ các sả...
-3. score=0.2103 doc_id=buyer-return-processing chunk=6 audience=buyer
+1. score=0.6230 doc_id=buyer-return-conditions chunk=1 audience=buyer
+   ⚠️ Lưu ý: Bạn vẫn có thể gửi yêu cầu Trả hàng/Hoàn tiền sau khi đã bấm nút ‘Đã nhận được hàng’ và vẫn còn trong thời hạn 15 ngày Trả hàng/Hoàn tiền quy định của Shopee Yêu cầu Trả hàng/Hoàn tiền của bạn sẽ được phản hồi trong vòng 3-5 ngày làm việc*. Hãy th...
+2. score=0.5892 doc_id=buyer-return-request-guide chunk=2 audience=buyer
+   Nếu yêu cầu được chấp nhận, tiền sẽ được hoàn trong 1 - 14 ngày làm việc, tùy thuộc vào phương thức thanh toán. Để tìm hiểu thêm về thời gian hoàn tiền theo từng phương thức, vui lòng truy cập [Trả hàng/Hoàn tiền] Thời gian nhận tiền hoàn và cách kiểm tra t...
+3. score=0.5857 doc_id=buyer-return-processing chunk=6 audience=buyer
    Để tăng khả năng yêu cầu Trả hàng/Hoàn tiền của bạn được chấp nhận, khi yêu cầu Trả hàng/Hoàn tiền phải đảm bảo sản phẩm yêu cầu của bạn thỏa một trong các điều kiện, và hãy cung cấp bằng chứng có sức thuyết phục cao (Lưu ý này chỉ khả thi trước khi có quyế...
-GOLD DOC IN TOP-3: NO
+GOLD DOC IN TOP-3: YES (rank 2)
 GOLD ANSWER EVIDENCE IN TOP-3: NO (0 points)
 
 ================================================================================
@@ -58,42 +58,42 @@ QUERY 4: Sau khi Shopee chấp nhận hoàn tiền, tiền hoàn về thẻ tín
 FILTER: {'audience': 'buyer'}
 GOLD DOC: buyer-refund-timeline
 GOLD ANSWER: Khoảng 7–14 ngày làm việc, tùy theo ngân hàng.
-1. score=0.1927 doc_id=buyer-refund-timeline chunk=0 audience=buyer
+1. score=0.7482 doc_id=buyer-return-request-guide chunk=2 audience=buyer
+   Nếu yêu cầu được chấp nhận, tiền sẽ được hoàn trong 1 - 14 ngày làm việc, tùy thuộc vào phương thức thanh toán. Để tìm hiểu thêm về thời gian hoàn tiền theo từng phương thức, vui lòng truy cập [Trả hàng/Hoàn tiền] Thời gian nhận tiền hoàn và cách kiểm tra t...
+2. score=0.7422 doc_id=buyer-refund-timeline chunk=0 audience=buyer
    # Thời gian nhận tiền hoàn và cách kiểm tra Sau khi gửi trả hàng, bạn sẽ nhận được thông báo xác nhận hoàn tiền qua mục Thông báo> Cập nhật đơn hàng trên ứng dụng Shopee, sau đó tiền sẽ được hoàn theo các phương thức thanh toán sau: ## Phương thức thanh to...
-2. score=0.1558 doc_id=buyer-return-request-guide chunk=0 audience=buyer
-   # Hướng dẫn gửi yêu cầu trả hàng và hoàn tiền ## 1. Hướng dẫn gửi yêu cầu Trả hàng/Hoàn tiền Khi cần yêu cầu trả hàng hoặc hoàn tiền trên Shopee, bạn có thể thực hiện theo một trong hai cách sau. ### Cách 1: Gửi yêu cầu trực tiếp tại trang đơn hàng Bước 1: ...
-3. score=0.1516 doc_id=buyer-return-processing chunk=5 audience=buyer
-   Các trường hợp không mong muốn Cách phòng tránh Người mua không thể thao tác trên hệ thống do hết thời gian khiếu nại Thường xuyên theo dõi tình trạng Trả hàng hoàn tiền được cập nhật trên ứng dụng Shopee để phản hồi đúng thời gian quy định. Quá hạn phản hồ...
-GOLD DOC IN TOP-3: YES (rank 1)
-GOLD ANSWER EVIDENCE IN TOP-3: YES (by rank 1, 2 point(s))
+3. score=0.7024 doc_id=buyer-refund-timeline chunk=2 audience=buyer
+   Trong quá trình xử lý nếu Người bán có khiếu nại, Shopee sẽ xem xét & thông báo kết quả cuối cùng đến bạn tại mục Thông báo > Cậpnhật đơn hàng trong vòng 3-5 ngày làm việc kể từ lúc tiếp nhận khiếu nại từ Người bán Đối với hình thức trả hàng “Tự sắp xếp”, ...
+GOLD DOC IN TOP-3: YES (rank 2)
+GOLD ANSWER EVIDENCE IN TOP-3: YES (by rank 2, 1 point(s))
 
 ================================================================================
 QUERY 5: Một yêu cầu hoàn tiền cần được phản hồi trong bao lâu?
 FILTER: {'audience': 'seller'}
 GOLD DOC: seller-mall-return-obligations
 GOLD ANSWER: Người Bán có 02 ngày lịch kể từ khi nhận yêu cầu; không phản hồi được xem là đồng ý với quyết định của Shopee.
-1. score=0.1336 doc_id=seller-mall-return-obligations chunk=3 audience=seller
-   Shopee có thể điều chỉnh việc thu phí vận chuyển và xử lý Sản Phẩm Hoàn Trả hoặc đơn giao không thành công sau khi thông báo cho Người Bán tối thiểu 07 ngày lịch trước ngày điều chỉnh. ## Khiếu nại về sản phẩm hoàn trả Khi nhận được Sản Phẩm Hoàn Trả, Người...
-2. score=0.1150 doc_id=seller-mall-return-obligations chunk=4 audience=seller
-   Quyết định của Shopee đối với việc trả hàng và hoàn tiền của Sản Phẩm tại Shopee Mall có tính ràng buộc. Người Bán đồng ý tuân thủ và thực hiện các hành động cần thiết để hoàn tất yêu cầu trả hàng hoặc hoàn tiền đã được Shopee chấp thuận. Đối với yêu cầu ho...
-3. score=0.0238 doc_id=seller-mall-return-obligations chunk=2 audience=seller
+1. score=0.5244 doc_id=seller-mall-return-obligations chunk=2 audience=seller
    Người Bán có nghĩa vụ nhận lại Sản Phẩm Hoàn Trả trong vòng 07 ngày làm việc kể từ khi nhận được quyết định cuối cùng của Shopee.Nếu địa chỉ đăng ký không chính xác và Người Bán không cung cấp địa chỉ nhận hàng chính xác, hoặc Người Bán không nhận lại Sản ...
+2. score=0.4455 doc_id=seller-mall-return-obligations chunk=0 audience=seller
+   # Nghĩa vụ người bán Shopee Mall khi xử lý trả hàng ## Phản hồi yêu cầu Hoàn Tiền Ngay Đối với trường hợp Shopee chủ động chấp nhận “Hoàn Tiền Ngay”, Người Mua được hoàn tiền mà không cần phải hoàn trả Sản Phẩm cho Người Bán. Nếu Người Bán không phản hồi ho...
+3. score=0.4187 doc_id=seller-mall-return-obligations chunk=3 audience=seller
+   Shopee có thể điều chỉnh việc thu phí vận chuyển và xử lý Sản Phẩm Hoàn Trả hoặc đơn giao không thành công sau khi thông báo cho Người Bán tối thiểu 07 ngày lịch trước ngày điều chỉnh. ## Khiếu nại về sản phẩm hoàn trả Khi nhận được Sản Phẩm Hoàn Trả, Người...
 GOLD DOC IN TOP-3: YES (rank 1)
-GOLD ANSWER EVIDENCE IN TOP-3: NO (0 points)
+GOLD ANSWER EVIDENCE IN TOP-3: YES (by rank 2, 1 point(s))
 
 ================================================================================
 A/B METADATA FILTER — QUERY 5
 WITHOUT FILTER:
-  1. score=0.1336 doc_id=seller-mall-return-obligations chunk=3 audience=seller
-  2. score=0.1150 doc_id=seller-mall-return-obligations chunk=4 audience=seller
-  3. score=0.0887 doc_id=buyer-return-conditions chunk=3 audience=buyer
+  1. score=0.6867 doc_id=buyer-return-request-guide chunk=2 audience=buyer
+  2. score=0.6230 doc_id=buyer-return-conditions chunk=1 audience=buyer
+  3. score=0.5809 doc_id=buyer-return-processing chunk=4 audience=buyer
 WITH audience=seller:
-  1. score=0.1336 doc_id=seller-mall-return-obligations chunk=3 audience=seller
-  2. score=0.1150 doc_id=seller-mall-return-obligations chunk=4 audience=seller
-  3. score=0.0238 doc_id=seller-mall-return-obligations chunk=2 audience=seller
+  1. score=0.5244 doc_id=seller-mall-return-obligations chunk=2 audience=seller
+  2. score=0.4455 doc_id=seller-mall-return-obligations chunk=0 audience=seller
+  3. score=0.4187 doc_id=seller-mall-return-obligations chunk=3 audience=seller
 
 ================================================================================
-RETRIEVAL DOC HIT RATE: 3/5
-ANSWER EVIDENCE HIT RATE: 1/5
-CONTENT-LEVEL BENCHMARK SCORE: 2/10
+RETRIEVAL DOC HIT RATE: 5/5
+ANSWER EVIDENCE HIT RATE: 3/5
+CONTENT-LEVEL BENCHMARK SCORE: 4/10
 Note: content-level evidence is checked cumulatively over top-k using answer markers.
